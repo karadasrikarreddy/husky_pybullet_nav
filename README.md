@@ -12,25 +12,25 @@ entirely from scratch — no ROS, no navigation stacks.
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                        GUI (PyQt5)                          │
-│  WorldCanvas ← user clicks → start / goal positions        │
+│  WorldCanvas ← user clicks → start / goal positions         │
 │  QTimer (50 Hz) drives the main loop                        │
 └───────────────┬──────────────────────────┬──────────────────┘
                 │                          │
          pose query                  velocity cmd
                 │                          │
 ┌───────────────▼──────────────┐  ┌───────▼────────────────────┐
-│  Simulation (PyBullet DIRECT)│  │  Controller (pure pursuit)  │
-│  • Husky URDF (custom)       │  │  • lookahead point on path  │
-│  • 4-wheel diff drive        │  │  • κ = 2 sin α / L          │
-│  • static box obstacles      │  │  • v, ω → wheel velocities  │
-└──────────────────────────────┘  └──────────┬──────────────────┘
+│  Simulation (PyBullet DIRECT)│  │  Controller (pure pursuit) │
+│  • Husky URDF (custom)       │  │  • lookahead point on path │
+│  • 4-wheel diff drive        │  │  • κ = 2 sin α / L         │
+│  • static box obstacles      │  │  • v, ω → wheel velocities │
+└──────────────────────────────┘  └──────────┬─────────────────┘
                                              │ uses
                                   ┌──────────▼──────────────────┐
-                                  │  Planner (A*)                │
-                                  │  • 2-D occupancy grid        │
-                                  │  • obstacle inflation        │
-                                  │  • 8-connected A*            │
-                                  │  • Gaussian path smoothing   │
+                                  │  Planner (A*)               │
+                                  │  • 2-D occupancy grid       │
+                                  │  • obstacle inflation       │
+                                  │  • 8-connected A*           │
+                                  │  • Gaussian path smoothing  │
                                   └─────────────────────────────┘
 ```
 
