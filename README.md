@@ -1,9 +1,11 @@
-# Husky Autonomous Navigation — PyBullet (No ROS)
+# Husky Autonomous Navigation — PyBullet
 
 Interactive simulation of a Clearpath Husky UGV navigating autonomously
 through a static obstacle field.  The user selects start and goal positions
 via a click-based GUI; the robot plans and executes a collision-free path
 entirely from scratch — no ROS, no navigation stacks.
+![Husky navigating autonomously through an obstacle field](husky.gif)
+
 
 ---
 
